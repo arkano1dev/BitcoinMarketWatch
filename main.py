@@ -27,13 +27,13 @@ def get_price_change_vs_bitcoin():
     bitcoin_price = next(item['quote']['USD']['price'] for item in data if item['id'] == bitcoin_id)
     
     # Create a DataFrame to store the data
-    df = pd.DataFrame(columns=['Symbol', 'Price (BTC)', 'Change 1h (%)', 'Change 24h (%)'])
+    df = pd.DataFrame(columns=['Symbol', 'Price (SATS)', 'Change 1h (%)', 'Change 24h (%)'])
     
     # Loop through each cryptocurrency and calculate its price in BTC and its price changes
     for currency in data:
         symbol = currency['symbol']
         price_usd = currency['quote']['USD']['price']
-        price_btc = price_usd / bitcoin_price
+        price_btc = round( price_usd / bitcoin_price  * 100000000,1 )
         change_1h = currency['quote']['USD']['percent_change_1h']
         change_24h = currency['quote']['USD']['percent_change_24h']
         
