@@ -42,6 +42,5 @@ The table is structured like this:
 
 ![Alt text](image.png)
 
-
 Note: The table above is just an example; the actual output will vary according to real-time market data
 

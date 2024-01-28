@@ -16,23 +16,23 @@ def main():
     st.set_page_config(layout="wide")
 
     st.markdown("""
-        <style>
-        .big-font {
-            font-size:300% !important;
-            font-weight: bold;
-        }
-        .text-bold {
-            font-weight: bold;
-        }
-        .blue-font {
-            color: #2589bd;
-        }
-        .dataframe {width:100% !important;}
-        .streamlit-container {
-            padding-top: 2rem;
-        }
-        </style>
-        """, unsafe_allow_html=True)
+    <style>
+    /* This sets the maximum width of the main content container */
+    .main .block-container {
+        max-width: 1000px;  /* Adjust this value to fit your needs */
+        margin: auto;
+    }
+    
+    /* This adjusts the padding around the Streamlit elements */
+    .reportview-container .main .block-container {
+        padding-top: 2rem; /* Adjust the top padding */
+        padding-right: 1rem;
+        padding-left: 1rem;
+        padding-bottom: 2rem;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 
     st.title("Bitcoin Market Watch")
     # Use AgGrid to create an interactive table
@@ -42,20 +42,20 @@ def main():
             "sortable": True,
             "resizable": True,
             "autoHeight": True,
+            "cellStyle": {'textAlign': 'center'},
         },
     "columnDefs": [
-        {"headerName": "Rank", "field": "Rank", "width": 90, "sortable": True, "filter": True},
-        {"headerName": "Symbol", "field": "Symbol", "sortable": True, "filter": True},
-        {"headerName": "Price (SATS)", "field": "Price (SATS)", "sortable": True, "filter": True},
-        {"headerName": "Relative Change 1h (%)", "field": "Relative Change 1h (%)", "sortable": True, "filter": True},
-        {"headerName": "Relative Change 24h (%)", "field": "Relative Change 24h (%)", "sortable": True, "filter": True},
+        {"headerName": "Rank", "field": "Rank", "width": 90,"headerClass": "center-header", "sortable": True, "filter": True},
+        {"headerName": "Symbol", "field": "Symbol","headerClass": "center-header", "sortable": True, "filter": True},
+        {"headerName": "Price (SATS)", "field": "Price (SATS)","headerClass": "center-header", "sortable": True, "filter": True},
+        {"headerName": "Relative Change 1h (%)", "field": "Relative Change 1h (%)","headerClass": "center-header", "sortable": True, "filter": True},
+        {"headerName": "Relative Change 24h (%)", "field": "Relative Change 24h (%)","headerClass": "center-header", "sortable": True, "filter": True},
     ],
     "domLayout": 'autoHeight',  # Fits the height of the grid to the number of rows
 }
 
     df = load_data()
 
-    # Use AgGrid to create an interactive table
     AgGrid(df, gridOptions=grid_options, fit_columns_on_grid_load=True)
 
 if __name__ == '__main__':
