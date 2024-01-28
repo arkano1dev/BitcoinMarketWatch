@@ -10,9 +10,7 @@ Before running this project, you need to install the required Python libraries:
 
 
 `
-pip install python-dotenv
-requests
-pandas
+pip install python-dotenv requests pandas streamlit st_aggrid
 `
 
 ### Installation
@@ -39,9 +37,10 @@ Execute the script using Python:
 
 ## Output
 
-The script will generate a .csv file containing a table with the price data. The table is structured like this:
+The script will generate a .csv file containing a table with the price data, and it will deploy a dashboard page at localhost to visualize the data.
+The table is structured like this:
 
-![Alt text](image-1.png)
+![Alt text](image.png)
 
 
 Note: The table above is just an example; the actual output will vary according to real-time market data
