@@ -16,3 +16,7 @@ CMC_API_KEY= 'your-coinmarketap-apikey'
 Run the code with 
 
 "python main.py" 
+
+The result is a table like this in a .csv file 
+
+![Alt text](image.png)
