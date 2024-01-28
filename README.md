@@ -41,7 +41,7 @@ Execute the script using Python:
 
 The script will generate a .csv file containing a table with the price data. The table is structured like this:
 
-![Alt text](image.png)
+![Alt text](image-1.png)
 
 
 Note: The table above is just an example; the actual output will vary according to real-time market data
