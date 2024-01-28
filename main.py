@@ -1,6 +1,7 @@
 import requests
 import pandas as pd
 from dotenv import load_dotenv
+import subprocess
 import os
 
 # Load environment variables from .env file.
@@ -48,9 +49,16 @@ def get_price_change_vs_bitcoin():
     
     return df
 
-# Call the function and print the result
-df = get_price_change_vs_bitcoin()
-print(df)
+def main():
+    # Fetch and process data
+    df = get_price_change_vs_bitcoin()
 
-# To save the DataFrame as a CSV file
-df.to_csv('crypto_relative_price_changes_vs_bitcoin.csv', index=False)
+    # Save to CSV
+    csv_file_path = 'crypto_relative_price_changes_vs_bitcoin.csv'
+    df.to_csv(csv_file_path, index=False)
+
+    # Run the Streamlit dashboard
+    subprocess.run(["streamlit", "run", "dashboard.py"])
+
+if __name__ == "__main__":
+    main()
