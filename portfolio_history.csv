@@ -1,0 +1,4 @@
+currency,amount,average_purchase_price,current_price_usd,current_price_btc,value_usd,value_btc,pl_usd,pl_percent_usd,pl_btc,pl_percent_btc,date
+BTC,1,50000.00,71913.82,1.00000005,71913.82,1.00000005,21913.82,43.83,0.30472340,43.8276,2024-03-13 03:34:53
+ETH,1,1000.00,4022.41,0.05593382,4022.41,0.05593382,3022.41,302.24,0.04202829,302.2415,2024-03-13 03:34:53
+Total,,,,,75936.23,1.05593387,,,,,
